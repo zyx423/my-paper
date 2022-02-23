@@ -1,7 +1,7 @@
 function [M,J,W]=EGCFS_TNNLS(X,C,lambda,alpha,m,max_iter)
 %% References
-    % R. Zhang, Y. Zhang, and X. Li, ¡°Unsupervised Feature Selection via Adaptive Graph
-    % Learning and Constraint,¡± IEEE transactions on neural networks and learning systems. 
+    % R. Zhang, Y. Zhang, and X. Li, Â¡Â°Unsupervised Feature Selection via Adaptive Graph
+    % Learning and Constraint,Â¡Â± IEEE transactions on neural networks and learning systems. 
 %% Input:
     % X:the centralized data matrix d*n;
     % C:the clusternumber;
@@ -26,7 +26,7 @@ S=S.*(lambda./sum(S,2));
 %%  
  t=1;
  err=1;
-while (err > 0.1 & t<=max_iter)
+while (err > 0.01 & t<=max_iter)
     %% SOLVE W;
      temp=lambda*X*(I-U*U'-S)*X'+alpha*D;
      [W,~,~] = eig1(temp,m,0);
